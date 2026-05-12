@@ -47,6 +47,36 @@ https://www.kaggle.com/datasets/parisrohan/credit-score-classification
 기본 모델은 64-32 구조의 MLP로 구성했습니다.  
 이후 성능 개선을 위해 256-128-64 구조의 ImprovedMLP를 추가로 실험했습니다.
 
+### 기본 모델 구조
+
+```text
+Input
+→ Linear(input_size, 64)
+→ ReLU
+→ Linear(64, 32)
+→ ReLU
+→ Linear(32, 3)
+```
+
+### 개선 모델 구조
+
+```text
+Input
+→ Linear(input_size, 256)
+→ BatchNorm1d(256)
+→ ReLU
+→ Dropout(0.2)
+→ Linear(256, 128)
+→ BatchNorm1d(128)
+→ ReLU
+→ Dropout(0.2)
+→ Linear(128, 64)
+→ BatchNorm1d(64)
+→ ReLU
+→ Dropout(0.2)
+→ Linear(64, 3)
+```
+
 개선 모델에는 다음을 적용했습니다.
 
 - BatchNorm1d
@@ -54,6 +84,12 @@ https://www.kaggle.com/datasets/parisrohan/credit-score-classification
 - weight_decay
 - batch_size 조정
 - learning rate를 낮춘 추가 학습
+
+## 성능 개선 이유
+기본 모델은 64-32 구조로 비교적 단순하여 신용점수 분류에 필요한 복잡한 패턴을 충분히 학습하기 어려웠습니다.  
+개선 모델에서는 은닉층을 256-128-64로 확장하여 모델의 표현력을 높였고, BatchNorm1d를 적용해 학습을 안정화했습니다.  
+또한 Dropout과 weight_decay를 사용해 특정 노드나 가중치에 과도하게 의존하는 것을 줄였습니다.  
+50 epoch 학습 후 성능이 75%에 근접했기 때문에 learning rate를 낮춰 추가 학습을 진행했고, 더 세밀한 최적화를 통해 최종 성능이 향상되었습니다.
 
 ## 결과
 
