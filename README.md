@@ -100,3 +100,15 @@ Input
 | 개선 MLP + 추가 학습 | learning rate 0.0005, 추가 5 epoch | 75.42% |
 
 최종적으로 개선 모델에 learning rate를 낮춘 추가 학습을 적용하여 `75.42%`의 Best Validation Accuracy를 달성했습니다.
+
+
+
+## 사용 기술 스택
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- PyTorch
+- Google Colab
+
