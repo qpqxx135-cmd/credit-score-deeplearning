@@ -15,7 +15,12 @@ https://www.kaggle.com/datasets/parisrohan/credit-score-classification
 - `Credit_Score` 클래스 분포 확인
 - 주요 수치형 변수 분포 확인
 - `Outstanding_Debt`, `Interest_Rate`와 신용점수 관계 확인
-- 수치형 변수 간 상관관계 히트맵 확인
+  <img width="704" height="470" alt="image" src="https://github.com/user-attachments/assets/ef4af4c0-d2db-437d-a8b9-520245c2de87" />
+  <img width="686" height="470" alt="image" src="https://github.com/user-attachments/assets/71093827-968b-4405-abf3-c3e6484268d4" />
+
+- 상관관계 히트맵을 통해 수치형 변수들 간의 관계를 확인
+  <img width="1383" height="1190" alt="image" src="https://github.com/user-attachments/assets/5884f4a5-0e37-46ee-a92a-a65b46635d50" />
+
 
 ## 전처리
 - `ID`, `Customer_ID`, `Name`, `SSN` 제거
